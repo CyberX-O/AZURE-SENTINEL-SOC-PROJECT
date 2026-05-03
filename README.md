@@ -58,7 +58,6 @@ User → Azure AD → Virtual Network (VNet)
 - Navigated to **Azure Active Directory → Security → MFA**
 - Enforced MFA for all users in the directory
 
-![Azure AD MFA Settings](screenshots/01-mfa-enabled.png)
 
 ---
 
@@ -69,10 +68,6 @@ User → Azure AD → Virtual Network (VNet)
   - `Security Reader` – read-only access to Defender for Cloud
   - `Log Analytics Reader` – access to query logs in Sentinel
 - Confirmed MFA was required for the new user
-
-![Azure AD Users and Groups](screenshots/02-azure-ad-users-groups.png)
-
-![RBAC Role Assignments](screenshots/02-rbac-role-assignments.png)
 
 ---
 
@@ -88,10 +83,6 @@ User → Azure AD → Virtual Network (VNet)
 | Allow SSH from my IP | 22 (TCP) | Allow |
 | Deny all other inbound | Any | Deny |
 
-![VNet Overview with Subnets](screenshots/03-vnet-subnets.png)
-
-![NSG Inbound Rules](screenshots/03-nsg-inbound-rules.png)
-
 ---
 
 ### Step 4 — Deploy and Harden the Linux Virtual Machine
@@ -100,10 +91,6 @@ User → Azure AD → Virtual Network (VNet)
 - Disabled root login
 - Updated system packages after first login
 
-![Linux VM Overview Running Status](screenshots/04-linux-vm-running.png)
-
-![Cloud Shell SSH Connection](screenshots/04-ssh-connection.png)
-
 ---
 
 ### Step 5 — Secure Azure Storage
@@ -111,11 +98,8 @@ User → Azure AD → Virtual Network (VNet)
   - Public blob access: **Disabled**
   - Secure transfer required: **Enabled (HTTPS only)**
   - Encryption at rest: **Enabled (default)**
-- Tested public access to the blob URL — returned **403 Forbidden** ✅
+- Tested public access to the blob URL — returned **403 Forbidden** 
 
-![Storage Account Configuration](screenshots/05-storage-configuration.png)
-
-![403 Forbidden on Public Blob URL](screenshots/05-storage-public-access-denied.png)
 
 ---
 
@@ -128,10 +112,6 @@ User → Azure AD → Virtual Network (VNet)
   - Failed login attempts
   - Suspicious activity patterns
 
-![Log Analytics Workspace Overview](screenshots/06-log-analytics-workspace.png)
-
-![Azure Monitor Alert Rules](screenshots/06-azure-monitor-alerts.png)
-
 ---
 
 ### Step 7 — Enable Microsoft Defender for Cloud
@@ -143,10 +123,6 @@ User → Azure AD → Virtual Network (VNet)
 - Enabled **Azure Security Benchmark** policy under Security Policy
 - Reviewed Security Recommendations and Secure Score
 
-![Defender for Cloud Plans and Secure Score](screenshots/07-defender-plans.png)
-
-![Security Recommendations List](screenshots/07-security-recommendations.png)
-
 ---
 
 ### Step 8 — Set Up Microsoft Sentinel (SIEM)
@@ -157,9 +133,8 @@ User → Azure AD → Virtual Network (VNet)
   - **Subscriptions → Diagnostic Settings → + Add diagnostic setting**
   - Selected: Administrative, Security, Alert, Policy logs
   - Destination: Log Analytics Workspace
-- Connected successfully within 15 minutes ✅
+- Connected successfully within 15 minutes 
 
-![Azure Activity Connector Connected](screenshots/08-azure-activity-connected.png)
 
 #### 8b. Connect Syslog (AMA Method)
 - Created a **Data Collection Rule (DCR)**:
@@ -174,11 +149,6 @@ User → Azure AD → Virtual Network (VNet)
 sudo systemctl restart azuremonitoragent
 sudo systemctl restart syslog
 ```
-
-![Syslog Connector Connected](screenshots/08-syslog-connected.png)
-
-![VM Extensions Showing AzureMonitorLinuxAgent](screenshots/08-ama-agent-installed.png)
-
 ---
 
 ### Step 9 — Simulate a Brute Force Attack
@@ -210,10 +180,6 @@ Syslog
 | take 20
 ```
 
-![Cloud Shell Brute Force Simulation](screenshots/09-brute-force-simulation.png)
-
-![Sentinel Logs Showing Failed Password Entries](screenshots/09-sentinel-logs-results.png)
-
 ---
 
 ### Step 10 — Create Analytics Rule in Microsoft Sentinel
@@ -243,9 +209,6 @@ Syslog
 - Alert threshold: `Greater than 0`
 - Incident Settings: `Create incidents from alerts → On`
 
-![Analytics Rule MITRE ATT&CK Mapping](screenshots/10-analytics-rule-mitre.png)
-
-![Set Rule Logic KQL Query and Scheduling](screenshots/10-rule-logic-scheduling.png)
 
 ---
 
@@ -272,11 +235,6 @@ Syslog
 | Accepted publickey from Cloud Shell IP | Legitimate – analyst SSH from Azure Cloud Shell |
 | No unknown foreign IPs | No unauthorised access detected ✅ |
 
-![Sentinel Incident SSH Brute Force Detection](screenshots/11-sentinel-incident.png)
-
-![Incident Details and Timeline](screenshots/11-incident-details.png)
-
-![KQL Results Showing Accepted Publickey](screenshots/11-successful-login-investigation.png)
 
 **Incident Closed:**
 
@@ -285,8 +243,6 @@ Syslog
 | Status | Closed |
 | Classification | True Positive – Suspicious Activity |
 | Comment | Simulated brute force attack. All successful logins confirmed as analyst access from known IPs. No unauthorised access detected. |
-
-![Incident Closed True Positive Classification](screenshots/11-incident-closed.png)
 
 ---
 
