@@ -2,11 +2,6 @@
 Secure Azure cloud environment with identity management, network security, SIEM monitoring, and brute force attack detection using Microsoft Sentinel
 # 🔐 Secure Azure Cloud Environment with Monitoring & Threat Detection
 
-![Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![Sentinel](https://img.shields.io/badge/Microsoft_Sentinel-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
-![Defender](https://img.shields.io/badge/Defender_for_Cloud-00B4D8?style=for-the-badge&logo=microsoft&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
-
 ---
 
 ## 📌 Project Overview
