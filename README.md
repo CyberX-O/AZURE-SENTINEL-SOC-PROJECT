@@ -1,10 +1,10 @@
 # AZURE-SENTINEL-SOC-PROJECT
 Secure Azure cloud environment with identity management, network security, SIEM monitoring, and brute force attack detection using Microsoft Sentinel
-# 🔐 Secure Azure Cloud Environment with Monitoring & Threat Detection
+# Secure Azure Cloud Environment with Monitoring & Threat Detection
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This project documents the end-to-end build of a secure cloud environment on **Microsoft Azure**, simulating real-world security operations. As a cloud security analyst, I configured identity and access controls, network segmentation, secure storage, centralised logging, and threat detection — culminating in a **simulated brute force SSH attack** detected and investigated through **Microsoft Sentinel**.
 
@@ -28,7 +28,7 @@ User → Azure AD → Virtual Network (VNet)
 
 ---
 
-## 🛠️ Tools & Services Used
+## Tools & Services Used
 
 | Tool / Service | Purpose |
 |---|---|
@@ -46,7 +46,7 @@ User → Azure AD → Virtual Network (VNet)
 
 ---
 
-## 📋 Step-by-Step Implementation
+## Step-by-Step Implementation
 
 ### Step 1 — Create Azure Free Account & Enable MFA
 - Signed up for a Microsoft Azure Free Account
@@ -112,9 +112,9 @@ User → Azure AD → Virtual Network (VNet)
 ### Step 7 — Enable Microsoft Defender for Cloud
 - Navigated to **Defender for Cloud → Environment Settings**
 - Enabled Defender plans:
-  - ✅ Defender for Servers
-  - ✅ Defender for Storage
-  - ✅ Defender for Databases
+  -  Defender for Servers
+  -  Defender for Storage
+  -  Defender for Databases
 - Enabled **Azure Security Benchmark** policy under Security Policy
 - Reviewed Security Recommendations and Secure Score
 
@@ -228,7 +228,7 @@ Syslog
 | Failed password from 192.168.1.1 | Simulated – fake IP hardcoded in logger command |
 | Accepted publickey from 172.201.33.160 | Legitimate – analyst SSH from local machine |
 | Accepted publickey from Cloud Shell IP | Legitimate – analyst SSH from Azure Cloud Shell |
-| No unknown foreign IPs | No unauthorised access detected ✅ |
+| No unknown foreign IPs | No unauthorised access detected  |
 
 
 **Incident Closed:**
@@ -266,7 +266,7 @@ Syslog
 
 ---
 
-## 🎯 MITRE ATT&CK Mapping
+##  MITRE ATT&CK Mapping
 
 | Tactic | Technique | Sub-technique |
 |---|---|---|
@@ -275,7 +275,7 @@ Syslog
 
 ---
 
-## 💡 Key Lessons Learned
+##  Key Lessons Learned
 
 1. **Duplicate Azure Policy assignments conflict** — always check Policy → Assignments before creating a new one
 2. **Manual Diagnostic Settings** are more reliable than policy-based connections in a lab environment
@@ -287,23 +287,23 @@ Syslog
 
 ---
 
-## ✅ Project Checklist
+##  Project Checklist
 
 | Task | Method | Status |
 |---|---|---|
-| Azure Free Account + MFA | Portal | ✅ |
-| Azure AD – Users, Groups, RBAC | Portal | ✅ |
-| VNet + Subnets + NSG | Portal | ✅ |
-| Linux VM Deployment & Hardening | Portal + Cloud Shell | ✅ |
-| Secure Storage Account | Portal | ✅ |
-| Azure Monitor + Diagnostic Logs | Portal | ✅ |
-| Defender for Cloud – Plans + Benchmark | Portal | ✅ |
-| Sentinel – Azure Activity Connector | Portal (Manual Diagnostic) | ✅ |
-| Sentinel – Syslog Connector (AMA/DCR) | Portal + Cloud Shell | ✅ |
-| Brute Force Simulation | Cloud Shell (logger command) | ✅ |
-| Analytics Rule (MITRE T1110) | Portal | ✅ |
-| Incident Detection & Investigation | Portal + KQL | ✅ |
-| Incident Closure & Documentation | Portal | ✅ |
+| Azure Free Account + MFA | Portal |
+| Azure AD – Users, Groups, RBAC | Portal |
+| VNet + Subnets + NSG | Portal |
+| Linux VM Deployment & Hardening | Portal + Cloud Shell |
+| Secure Storage Account | Portal |
+| Azure Monitor + Diagnostic Logs | Portal |
+| Defender for Cloud – Plans + Benchmark | Portal |
+| Sentinel – Azure Activity Connector | Portal (Manual Diagnostic) |
+| Sentinel – Syslog Connector (AMA/DCR) | Portal + Cloud Shell |
+| Brute Force Simulation | Cloud Shell (logger command) |
+| Analytics Rule (MITRE T1110) | Portal |
+| Incident Detection & Investigation | Portal + KQL |
+| Incident Closure & Documentation | Portal |
 
 ---
 
@@ -341,5 +341,3 @@ azure-sentinel-soc-project/
 ```
 
 ---
-
-*Project completed as part of a hands-on Cloud Security Analyst portfolio.*
